@@ -1,0 +1,2 @@
+[ ] Upload workshop_preview_image.png
+[ ] Create flat spells
