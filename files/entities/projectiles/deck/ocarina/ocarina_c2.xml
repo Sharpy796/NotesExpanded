@@ -91,13 +91,13 @@
 	</SpriteParticleEmitterComponent>
 	
 	<VariableStorageComponent
-		name="kantele_note"
+		name="ocarina_note"
 		value_string="asharp"
 		>
 	</VariableStorageComponent>
 	
 	<LuaComponent
-		script_source_file="data/scripts/magic/kantele.lua"
+		script_source_file="data/scripts/magic/ocarina.lua"
 		execute_on_added="1"
 		remove_after_executed="1"
 		>
@@ -105,7 +105,7 @@
 
 	<AudioComponent
 		file="data/audio/Desktop/projectiles.bank"
-		event_root="player_projectiles/kantele/asharp"
+		event_root="player_projectiles/ocarina/c2"
 		set_latest_event_position="1" >
 	</AudioComponent>
 

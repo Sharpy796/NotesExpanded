@@ -105,7 +105,7 @@
 
 	<AudioComponent
 		file="data/audio/Desktop/projectiles.bank"
-		event_root="player_projectiles/ocarina/b"
+		event_root="player_projectiles/kantele/b"
 		set_latest_event_position="1" >
 	</AudioComponent>
 
