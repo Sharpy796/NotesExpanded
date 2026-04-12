@@ -53,7 +53,7 @@ local music_data = {
     {instrument = "ocarina", id = "ocarina_fsharp2", flat = "ocarina_gflat2"},
 	{instrument = "ocarina", id = "ocarina_g2"},
     {instrument = "ocarina", id = "ocarina_gsharp2", flat = "ocarina_aflat2"},
-	{instrument = "ocarina", id = "ocarina_a2"},
+	{instrument = "ocarina", id = "ocarina_a3"},
     {instrument = "ocarina", id = "ocarina_asharp3", flat = "ocarina_bflat2"},
 	{instrument = "ocarina", id = "ocarina_b3"},
 	{instrument = "ocarina", id = "ocarina_c3"},

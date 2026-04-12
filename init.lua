@@ -1,6 +1,5 @@
 dofile_once("data/scripts/lib/utilities.lua")
--- ModRegisterAudioEventMappings("mods/NotesExpanded/files/sounds/GUIDs.txt")
-ModRegisterAudioEventMappings("mods/NotesExpanded/GUIDs.txt")
+ModRegisterAudioEventMappings("mods/NotesExpanded/files/sounds/GUIDs.txt")
 local music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")
 
 local new_translations = ModTextFileGetContent("mods/NotesExpanded/translations.csv")
@@ -97,13 +96,12 @@ local function createNoteSprite(data)
 	end
 end
 
-local function createTranslation(id, data)
+local function createTranslation(data)
 	new_translations = new_translations..[[,
 action_notes_expanded_]]..data.id:lower()..[[,"]]..(data.instrument:gsub("^%l", string.upper))..[[ - Note ]]..getNoteFromId(data):gsub("sharp","#"):gsub("flat","b"):upper()..[[",,,,,,,,,,,,,]]
 end
 
-local function createNoteXML(data)
-	-- local trail_mods = data.trail_mods
+local function createNoteXML(id, data)
 	local note = getNoteFromId(data)
 	local template = ModTextFileGetContent("mods/NotesExpanded/files/entities/projectiles/deck/note_template.xml")
 	local filepath = "mods/NotesExpanded/files/entities/projectiles/deck/"..data.instrument.."/"..data.id..".xml"
@@ -133,10 +131,16 @@ local function createNoteXML(data)
 		end
 
 		-- edit the SpriteParticleEmitterComponent
-		-- local specomp = xml:first_of("SpriteParticleEmitterComponent")
-		-- if specomp then
-			
-		-- end
+		math.randomseed(id)
+		local specomp = xml:first_of("SpriteParticleEmitterComponent")
+		if specomp then
+			local color = math.random(3)
+			local value = math.random(5)*2/10.0
+			if color == 1 then specomp:set("color.r",value)
+			elseif color == 2 then specomp:set("color.g",value)
+			elseif color == 3 then specomp:set("color.b",value)
+			end
+		end
 	end
 end
 
@@ -144,8 +148,8 @@ end
 local function loadNotes()
 	makeSpritesEditable()
 	for id,data in pairs(music_data) do
-		createTranslation(id, data)
-		createNoteXML(data)
+		createTranslation(data)
+		createNoteXML(id, data)
 		createNoteSprite(data)
 	end
 	print("initialized notes!")
@@ -156,7 +160,6 @@ function OnModPreInit()
 	music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")
 	loadNotes()
     updateTranslations()
-	-- GamePlaySound("mods/NotesExpanded/NotesExpanded.bank", "notesexpanded/kantele/b", 0, 0)
     ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/NotesExpanded/files/scripts/gun/gun_actions.lua" )
 end
 
