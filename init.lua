@@ -1,4 +1,6 @@
 dofile_once("data/scripts/lib/utilities.lua")
+local testing = true;
+if testing then ModMagicNumbersFileAdd("mods/NotesExpanded/files/magic_numbers.xml") end -- For testing purposes
 ModRegisterAudioEventMappings("mods/NotesExpanded/files/sounds/GUIDs.txt")
 local music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")
 
@@ -158,4 +160,5 @@ function OnModPreInit()
 	loadNotes()
     updateTranslations()
     ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/NotesExpanded/files/scripts/gun/gun_actions.lua" )
+	ModLuaFileAppend( "data/scripts/biomes/ocarina.lua", "mods/NotesExpanded/files/scripts/biomes/ocarina_appends.lua" )
 end
