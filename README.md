@@ -1,4 +1,4 @@
 # NotesExpanded
 Cast your spells with expanded song!
 
-This mod is planned to fill out the rest of the Kantele and Ocarina notes with the entire musical scale. 
+This mod fills out the Kantele and Ocarina notes across several octaves: 2 for Kantele and 3 for Ocarina.

@@ -127,7 +127,6 @@ local function createNoteXML(id, data)
 		local audiocomp = xml:first_of("AudioComponent")
 		if audiocomp then
 			audiocomp:set("event_root", "notesexpanded/"..data.instrument.."/"..note)
-			-- audiocomp:set("event_root", data.instrument.."/"..note)
 		end
 
 		-- edit the SpriteParticleEmitterComponent
@@ -144,7 +143,6 @@ local function createNoteXML(id, data)
 	end
 end
 
-
 local function loadNotes()
 	makeSpritesEditable()
 	for id,data in pairs(music_data) do
@@ -155,23 +153,9 @@ local function loadNotes()
 	print("initialized notes!")
 end
 
-
 function OnModPreInit()
 	music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")
 	loadNotes()
     updateTranslations()
     ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/NotesExpanded/files/scripts/gun/gun_actions.lua" )
 end
-
-
--- makeSpritesEditable()
--- for id,data in pairs(music_data) do
--- 	if (not data.vanilla_image) then
--- 		createNoteSprite(data)
--- 	end
--- end
--- print("created note sprites!")
-
--- function OnModInit()
--- 	music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")
--- end
