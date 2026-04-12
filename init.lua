@@ -1,5 +1,5 @@
 dofile_once("data/scripts/lib/utilities.lua")
-local testing = true;
+local testing = false;
 if testing then ModMagicNumbersFileAdd("mods/NotesExpanded/files/magic_numbers.xml") end -- For testing purposes
 ModRegisterAudioEventMappings("mods/NotesExpanded/files/sounds/GUIDs.txt")
 local music_data = dofile_once("mods/NotesExpanded/files/scripts/misc/music_data.lua")

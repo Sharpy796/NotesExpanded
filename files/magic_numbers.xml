@@ -1,5 +1,11 @@
 <!-- Ocarina -->
-<MagicNumbers
+<!-- <MagicNumbers
   DESIGN_PLAYER_START_POS_Y="-6475"
   DESIGN_PLAYER_START_POS_X="-10000"
+></MagicNumbers> -->
+<!-- Kantele -->
+<MagicNumbers
+  DESIGN_PLAYER_START_POS_Y="-750"
+  DESIGN_PLAYER_START_POS_X="-1630"
+  UI_WOBBLE_AMOUNT_DEGREES="0"
 ></MagicNumbers>
